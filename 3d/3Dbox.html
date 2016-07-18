@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3D盒子XYZ</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        body{transform-style: preserve-3d;perspective: 1200px;perspective-origin: center -100px;cursor: move;}
+        ul{list-style: none;}
+        #stage{width: 600px;height: 500px;background: rgba(255,255,255,0.2);margin: 100px auto;transform-style: preserve-3d;position: relative;}
+        #stage span{display: inline-block;width: 2px;height: 500px;background: #f00;position: absolute;left:0px;top:0px;text-align: right;}
+        #stage span.spx{transform-origin: left 0;transform: rotateZ(-90deg);}
+        #stage span.spz{transform-origin: left 0;transform: rotateX(90deg);}
+        ul.warp{transform-style: preserve-3d;position: relative;}
+        ul.warp li{width: 400px;height: 400px;border: 1px solid yellow;position: absolute;left: 50px;top: 0px;}
+        ul.warp li:nth-child(1){background: #90f;}
+        ul.warp li:nth-child(2){background: #f99;transform-origin: left center;transform: rotateY(90deg);}
+        ul.warp li:nth-child(3){background: #f90;transform-origin: right center;transform: rotateY(-90deg);}
+        ul.warp li:nth-child(4){background: green;transform-origin: top center;transform: rotateX(-90deg);}
+        ul.warp li:nth-child(5){background: skyblue;transform-origin: bottom center;transform: rotateX(90deg);}
+        ul.warp li:nth-child(6){background: blue;transform: translate3d(0,0,-400px);}
+    </style>
+</head>
+<body>
+    <div id="stage">
+        <span class="spx">x</span>
+        <span class="spy">y</span>
+        <span class="spz">z</span>
+        <ul class="warp">
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+        </ul>
+    </div>
+</body>
+<script>
+    var oStage = document.getElementById("stage");
+    var rotateX=0;
+    var rotateY=-10;
+    document.onmousedown = function(ev){
+        var oEvent = ev||event
+        var oldX = oEvent.clientX;
+        var oldY = oEvent.clientY;
+        document.onmousemove = function(ev){
+            var oEvent = ev||event;
+            var newX = oEvent.clientX;
+            var newY = oEvent.clientY;
+            var leaveY = newY-oldY;
+            var leaveX = newX-oldX;
+            rotateX += leaveX/5;
+            rotateY += -leaveY/5;
+            rotate(rotateX,rotateY);
+            oldX = oEvent.clientX;
+            oldY = oEvent.clientY;
+            return false;
+        }
+        document.onmouseup = function(){
+            document.onmousemove = null;
+            document.onmouseup =null;
+        }
+        return false;
+    }
+    function rotate(x,y){
+        var data = ["o","ms","moz","webkit",""];
+        var length = data.length;
+        for(var i = 0;i<length;i++){
+            oStage.style[data[i]+"Transform"] = "rotateX("+y+"deg) rotateY("+x+"deg)";
+        }
+    }
+</script>
+</html>
