@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>loading...</title>
+    <style>
+        *{margin: 0;padding: 0;}
+        div{width: 200px;height: 200px;border-radius: 30px;box-shadow: 0 0 5px 3px skyblue;position: absolute;transform: translate(-50%,-50%);left: 50%;top:50%;}
+        p{position: absolute;width: 120px;height: 120px;border-radius: 50%;border: 1px solid #e3e3e3;transform: translate(-50%,-50%);left: 50%;top:50%;overflow: hidden;}
+        span{position: absolute;display: block;width: 100px;height: 100px;transform: translate(-50%,-50%);left: 50%;top:50%;border-radius: 50%;border: 1px solid #e3e3e3;line-height: 120px;color: #ccc;font:14px "微软雅黑";text-align: center;vertical-align: middle;box-shadow: 0 0 1px 1px skyblue;z-index: 999;background: #fff;}
+        em{position: absolute;display: block;width: 120px;height: 120px;left: 50%;top:50%;transform-origin: bottom right;transform: translate(-100%,-100%) skewY(90deg);animation: myanim 5s linear infinite;
+        /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f0f7ed+0,2989d8+100,7db9e8+100 */
+background: rgb(240,247,237); /* Old browsers */
+background: -moz-linear-gradient(left,  rgba(240,247,237,1) 0%, rgba(41,137,216,1) 100%, rgba(125,185,232,1) 100%); /* FF3.6-15 */
+background: -webkit-linear-gradient(left,  rgba(240,247,237,1) 0%,rgba(41,137,216,1) 100%,rgba(125,185,232,1) 100%); /* Chrome10-25,Safari5.1-6 */
+background: linear-gradient(to right,  rgba(240,247,237,1) 0%,rgba(41,137,216,1) 100%,rgba(125,185,232,1) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f0f7ed', endColorstr='#7db9e8',GradientType=1 ); /* IE6-9 */
+
+
+        }
+        
+        @keyframes myanim{
+            from{transform:translate(-100%,-100%) skewY(0deg) rotate(0deg);}
+            to{transform:translate(-100%,-100%) skewY(0deg) rotate(360deg);}
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <p><em></em><span></span></p>
+    </div>
+</body>
+</html>
